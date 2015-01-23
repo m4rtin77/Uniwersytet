@@ -1,4 +1,4 @@
-Feature: I would like to edit katedra
+Feature: I would like to edit pokoj
 
   Scenario Outline: Insert records
     Given I am on homepage
@@ -6,17 +6,17 @@ Feature: I would like to edit katedra
     And I fill in "Username" with "admin"
     And I fill in "Password" with "loremipsum"
     And I press "Login"
-    And I go to "/admin/katedra"
+    And I go to "/admin/pokoj"
     Then I should not see "<name>"
     And I follow "Create a new entry"
-    Then I should see "Katedra creation"
+    Then I should see "pokoj creation"
     When I fill in "Name" with "<name>"
     And I press "Create"
     Then I should see "<name>"
 
   Examples:
-    | name                             |
-    | KATEDRA RECORD Programowanie     |
+    | name                 |
+    | POKOJ RECORD 214     |
 
 
   Scenario Outline: Edit records
@@ -25,7 +25,7 @@ Feature: I would like to edit katedra
     And I fill in "Username" with "admin"
     And I fill in "Password" with "loremipsum"
     And I press "Login"
-    And I go to "/admin/katedra"
+    And I go to "/admin/pokoj"
     Then I should not see "<name>"
     When I follow "<old-name>"
     Then I should see "<old-name>"
@@ -37,8 +37,8 @@ Feature: I would like to edit katedra
     And I should not see "<old-name>"
 
   Examples:
-    | old-name                        | new-name                                |
-    | KATEDRA RECORD Programowanie    | NEW KATEDRA RECORD SztucznaInteligencja |
+    | old-name              | new-name               |
+    | KATEDRA RECORD 214    | NEW KATEDRA RECORD 300 |
 
 
   Scenario Outline: Delete records
@@ -47,7 +47,7 @@ Feature: I would like to edit katedra
     And I fill in "Username" with "admin"
     And I fill in "Password" with "loremipsum"
     And I press "Login"
-    And I go to "/admin/katedra"
+    And I go to "/admin/pokoj"
     Then I should see "<name>"
     When I follow "<name>"
     Then I should see "<name>"
@@ -55,6 +55,6 @@ Feature: I would like to edit katedra
     Then I should not see "<name>"
 
   Examples:
-    |  name                                     |
-    | KATEDRA RECORD Programowanie              |
-    | NEW KATEDRA RECORD SztucznaInteligencja   |
+    |  name                    |
+    | KATEDRA RECORD 300       |
+   
