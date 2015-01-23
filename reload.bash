@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # If
@@ -16,3 +17,5 @@ php app/console cache:warmup --env=prod
 
 mysql -u root < 00-extra/db/create-empty-database.sql
 php app/console doctrine:schema:update --force
+
+php app/console fos:user:create admin admin@example.net loremipsum --super-admin
