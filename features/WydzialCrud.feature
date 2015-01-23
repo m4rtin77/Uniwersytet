@@ -1,6 +1,6 @@
 Feature: I would like to edit wydzial
 
-    Scenario Outline: Insert records
+  Scenario Outline: Insert records
     Given I am on homepage
     And I follow "Login"
     And I fill in "Username" with "admin"
@@ -13,22 +13,22 @@ Feature: I would like to edit wydzial
     When I fill in "Name" with "<name>"
     And I press "Create"
     Then I should see "<name>"
-   
+
   Examples:
     | name                          |
-    | WYDZIAL RECORD Informatyczny  |
-    | WYDZIAL RECORD Matematyczny   |
-    | WYDZIAL RECORD Humanistyczny  |
+    | WYDZIAL RECORD Matematyka     |
+    | WYDZIAL RECORD Informatyka    |
+    | WYDZIAL RECORD Humanistyka     |
 
 
- Scenario Outline: Edit records
+  Scenario Outline: Edit records
     Given I am on homepage
     And I follow "Login"
     And I fill in "Username" with "admin"
     And I fill in "Password" with "loremipsum"
     And I press "Login"
     And I go to "/admin/wydzial"
-    Then I should not see "<new-name>"
+    Then I should not see "<name>"
     When I follow "<old-name>"
     Then I should see "<old-name>"
     When I follow "Edit"
@@ -38,11 +38,11 @@ Feature: I would like to edit wydzial
     Then I should see "<new-name>"
     And I should not see "<old-name>"
 
- Examples:
-    | old-name                     | new-name                        |
-    | WYDZIAL RECORD Informatyczny | NEW WYDZIAL RECORD Mechaniczny  |
- 
-   
+  Examples:
+    | old-name                     | new-name                    |
+    | WYDZIAL RECORD Matematyka    | NEW WYDZIAL RECORD Mechanika |
+
+
   Scenario Outline: Delete records
     Given I am on homepage
     And I follow "Login"
@@ -57,7 +57,7 @@ Feature: I would like to edit wydzial
     Then I should not see "<name>"
 
   Examples:
-    | name                            |
-    | WYDZIAL RECORD Matematyczny     |
-    | WYDZIAL RECORD Humanistyczny    |
-    | NEW WYDZIAL RECORD Mechaniczny  |
+    |  name                         |
+    | WYDZIAL RECORD Informatyka    |
+    | WYDZIAL RECORD Humanistyka       |
+    | NEW WYDZIAL RECORD Mechanika   |

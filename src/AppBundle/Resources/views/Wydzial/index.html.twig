@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Wydzial list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+            <td>{{ loop.index }}.</td>
+            <td>{{ loop.index }}.</td>
+                    <td>{{ entity.name }}</td>
+                    <td>
+                        <a href="{{ path('admin_wydzial_show', { 'id': entity.id }) }}">
+                            {{ entity.name }}
+                        </a>
+                    </td>
+                <ul>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('admin_wydzial_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
